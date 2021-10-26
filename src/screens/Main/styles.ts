@@ -21,8 +21,8 @@ export const styles = StyleSheet.create({
    },
 
    logo: {
-      width: 180,
-      height: 89.79,
+      width: 200,
+      height: 72,
    },
 
    form: {
@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
       borderWidth: 0,
       borderRadius: 5,
       textAlign: 'center',
+      fontFamily: FONTS.REGULAR,
       fontSize: 22,
       marginBottom: 20,
       paddingHorizontal: 10,
@@ -59,7 +60,8 @@ export const styles = StyleSheet.create({
 
    buttonText: {
       color: COLORS.WHITE,
+      fontFamily: FONTS.BOLD,
       fontWeight: 'bold',
-      fontSize: 18,
+      fontSize: 22,
    }
  });

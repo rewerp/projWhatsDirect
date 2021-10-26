@@ -6,7 +6,13 @@ import {
 
 import { styles } from './styles';
 
-import Logo from '../../assets/images/logo.png';
+import Logo from '../../assets/images/logoMain.png';
+
+function handleSendMessage(number: string) {
+   if (number) {
+      Linking.openURL(`https://wa.me/55 ${number}`)
+   }
+}
 
 export function Main() {
    const [number, setNumber] = useState('');
@@ -30,7 +36,7 @@ export function Main() {
                   />
                   <TouchableOpacity
                      style={styles.button}
-                     onPress={() => Linking.openURL(`https://wa.me/55 ${number}`)}
+                     onPress={() => handleSendMessage(number)}
                   >
                      <Text style={styles.buttonText} >
                         Iniciar conversa
