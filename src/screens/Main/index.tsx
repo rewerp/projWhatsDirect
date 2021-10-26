@@ -33,6 +33,7 @@ export function Main() {
                      textContentType="telephoneNumber"
                      style={styles.textInput}
                      onChangeText={setNumber}
+                     clearButtonMode="while-editing"
                   />
                   <TouchableOpacity
                      style={styles.button}
