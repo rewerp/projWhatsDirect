@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
    imageContry: {
       borderRightWidth: 1,
       borderColor: 'black',
-      backgroundColor: 'red',
+      // backgroundColor: 'red',
    },
 
    textCountry: {

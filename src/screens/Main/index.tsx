@@ -8,6 +8,7 @@ import { styles } from './styles';
 
 import Logo from '../../assets/images/logoMain.png';
 import BrazilFlag from '../../assets/flags/brazil.png';
+import { TextInputMask } from 'react-native-masked-text';
 
 function handleSendMessage(number: string) {
    if (number) {
@@ -28,7 +29,10 @@ export function Main() {
                />
                <View style={styles.form} >
                   <TouchableOpacity style={styles.boxCountry} >
-                     <Image source={BrazilFlag} />
+                     <Image 
+                        source={BrazilFlag}
+                        style={styles.imageContry} 
+                     />
                      <Text style={styles.textCountry} > 
                         (+55) Brazil
                      </Text>
@@ -42,6 +46,7 @@ export function Main() {
                      onChangeText={setNumber}
                      clearButtonMode="while-editing"
                   />
+                  {/* <TextInputMask /> */}
                   <TouchableOpacity
                      style={styles.button}
                      onPress={() => handleSendMessage(number)}
