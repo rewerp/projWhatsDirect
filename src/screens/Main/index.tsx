@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import {
    View, Text, TextInput, TouchableOpacity,
-   Image, Linking, ScrollView
+   Image, Linking, ScrollView, TouchableWithoutFeedbackBase
 } from 'react-native';
 
 import { styles } from './styles';
 
 import Logo from '../../assets/images/logoMain.png';
+import BrazilFlag from '../../assets/flags/brazil.png';
 
 function handleSendMessage(number: string) {
    if (number) {
@@ -26,6 +27,12 @@ export function Main() {
                   style={styles.logo}
                />
                <View style={styles.form} >
+                  <TouchableOpacity style={styles.boxCountry} >
+                     <Image source={BrazilFlag} />
+                     <Text style={styles.textCountry} > 
+                        (+55) Brazil
+                     </Text>
+                  </TouchableOpacity>
                   <TextInput
                      placeholder="Digite o número"
                      keyboardType="phone-pad"
