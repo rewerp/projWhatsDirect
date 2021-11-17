@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
-   View, Text, TextInput, TouchableOpacity,
-   Image, Linking, ScrollView, TouchableWithoutFeedbackBase
+   View, Text, TouchableOpacity,
+   Image, Linking, ScrollView,
 } from 'react-native';
 
 import { styles } from './styles';
@@ -10,14 +10,17 @@ import Logo from '../../assets/images/logoMain.png';
 import BrazilFlag from '../../assets/flags/brazil.png';
 import { TextInputMask } from 'react-native-masked-text';
 
-function handleSendMessage(number: string) {
-   if (number) {
-      Linking.openURL(`https://wa.me/55 ${number}`)
+const countryCode = '55';
+
+function handleSendMessage(phoneNumber: string) {
+   if (phoneNumber) {
+      alert(countryCode)
+      Linking.openURL(`https://wa.me/ ${countryCode} ${phoneNumber}`)
    }
 }
 
 export function Main() {
-   const [number, setNumber] = useState('');
+   const [phoneNumber, setPhoneNumber] = useState('');
 
    return (
       <ScrollView contentContainerStyle={styles.scrollView} >
@@ -29,27 +32,29 @@ export function Main() {
                />
                <View style={styles.form} >
                   <TouchableOpacity style={styles.boxCountry} >
-                     <Image 
+                     <Image
                         source={BrazilFlag}
-                        style={styles.imageContry} 
+                        style={styles.imageContry}
                      />
-                     <Text style={styles.textCountry} > 
+                     <Text style={styles.textCountry} >
                         (+55) Brazil
                      </Text>
                   </TouchableOpacity>
-                  <TextInput
-                     placeholder="Digite o número"
-                     keyboardType="phone-pad"
-                     maxLength={parseInt("11")}
-                     textContentType="telephoneNumber"
+                  <TextInputMask
                      style={styles.textInput}
-                     onChangeText={setNumber}
+                     placeholder="Digite o número"
                      clearButtonMode="while-editing"
+                     keyboardType="phone-pad"
+                     type={'cel-phone'}
+                     options={{
+                        format: '(99) 99999-9999'
+                     }}
+                     value={phoneNumber}
+                     onChangeText={setPhoneNumber}
                   />
-                  {/* <TextInputMask /> */}
                   <TouchableOpacity
                      style={styles.button}
-                     onPress={() => handleSendMessage(number)}
+                     onPress={() => handleSendMessage(phoneNumber)}
                   >
                      <Text style={styles.buttonText} >
                         Iniciar conversa
