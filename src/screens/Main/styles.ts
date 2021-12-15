@@ -4,7 +4,6 @@ import { COLORS, FONTS } from '../../theme';
 export const styles = StyleSheet.create({
    scrollView: {
       flex: 1,
-      // backgroundColor: COLORS.BACKGROUNDMAIN,
       backgroundColor: 'transparent',
    },
 
@@ -34,36 +33,11 @@ export const styles = StyleSheet.create({
       marginTop: 60,
    },
 
-   boxCountry: {
-      flexDirection: 'row',
-      backgroundColor: COLORS.WHITE,
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: 50,
-      width: 280,
-      borderWidth: 0,
-      borderRadius: 5,
-   },
-
-   imageContry: {
-      borderRightWidth: 1,
-      borderColor: 'black',
-      // backgroundColor: 'red',
-   },
-
-   textCountry: {
-      color: COLORS.TEXTINPUT,
-      width: '70%',
-      textAlign: 'center',
-      fontFamily: FONTS.REGULAR,
-      fontSize: 22,
-   },
-
    textInput: {
       color: COLORS.TEXTINPUT,
       backgroundColor: COLORS.WHITE,
       height: 50,
-      width: 280,
+      width: 320,
       borderWidth: 0,
       borderRadius: 5,
       textAlign: 'center',
@@ -80,7 +54,7 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       height: 50,
-      width: 280,
+      width: 320,
    },
 
    buttonText: {

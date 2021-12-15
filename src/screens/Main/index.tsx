@@ -1,26 +1,34 @@
 import React, { useRef, useState } from 'react';
 import {
-   View, Text, TouchableOpacity,
-   Image, Linking, ScrollView,
+   View, Text, TouchableOpacity, Image, Linking, ScrollView, Alert, Modal
 } from 'react-native';
-
-import { styles } from './styles';
-
-import Logo from '../../assets/images/logoMain.png';
-import BrazilFlag from '../../assets/flags/brazil.png';
 import { TextInputMask } from 'react-native-masked-text';
 
-const countryCode = '55';
+import { BoxCountry } from '../../components/BoxCountry';
+import { ListCountry } from '../../components/ListCountry';
 
-function handleSendMessage(phoneNumber: string) {
-   if (phoneNumber) {
-      alert(countryCode)
-      Linking.openURL(`https://wa.me/ ${countryCode} ${phoneNumber}`)
-   }
-}
+import { styles } from './styles';
+import Logo from '../../assets/images/logoMain.png';
+
 
 export function Main() {
    const [phoneNumber, setPhoneNumber] = useState('');
+   const [modalVisible, setModalVisible] = useState(false);
+   const countryCode = '55';
+
+   function handleSendMessage(phoneNumber: string) {
+      if (phoneNumber) {
+         Linking.openURL(`https://wa.me/${countryCode}${phoneNumber}`)
+      }
+   }
+
+   function renderListCountry(visible: boolean) {
+      return (
+         <ListCountry 
+            visible={visible}
+         />
+      );
+   }
 
    return (
       <ScrollView contentContainerStyle={styles.scrollView} >
@@ -31,15 +39,10 @@ export function Main() {
                   style={styles.logo}
                />
                <View style={styles.form} >
-                  <TouchableOpacity style={styles.boxCountry} >
-                     <Image
-                        source={BrazilFlag}
-                        style={styles.imageContry}
-                     />
-                     <Text style={styles.textCountry} >
-                        (+55) Brazil
-                     </Text>
-                  </TouchableOpacity>
+                  <BoxCountry
+                     title=""
+                     onPress={() => renderListCountry(true)}
+                  />
                   <TextInputMask
                      style={styles.textInput}
                      placeholder="Digite o número"
