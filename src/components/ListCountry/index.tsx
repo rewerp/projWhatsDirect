@@ -17,7 +17,10 @@ export function ListCountry(Props: ModalProps) {
           !Props.visible;
         }}
       >
-        <BoxCountry />
+        <BoxCountry 
+          title="(+55) Brazil" 
+          onPress={() => alert('teste')} 
+        />
       </Modal>
     </View>
   );
