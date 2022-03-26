@@ -14,7 +14,7 @@ import Logo from '../../assets/images/logoMain.png';
 export function Main() {
    const [phoneNumber, setPhoneNumber] = useState('');
    const [modalVisible, setModalVisible] = useState(false);
-   const countryCode = '55';
+   const [countryCode, setCountryCode] = useState('55');
 
    function handleSendMessage(phoneNumber: string) {
       if (phoneNumber) {
@@ -25,7 +25,7 @@ export function Main() {
    function renderListCountry(visible: boolean) {
       return (
          <ListCountry 
-            visible={visible}
+            visible={true}
          />
       );
    }
@@ -48,9 +48,10 @@ export function Main() {
                      placeholder="Digite o número"
                      clearButtonMode="while-editing"
                      keyboardType="phone-pad"
-                     type={'cel-phone'}
+                     // type={'cel-phone'}
+                     type={'custom'}
                      options={{
-                        format: '(99) 99999-9999'
+                        mask: '(99) 99999-9999'
                      }}
                      value={phoneNumber}
                      onChangeText={setPhoneNumber}

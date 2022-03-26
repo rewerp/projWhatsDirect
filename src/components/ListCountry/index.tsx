@@ -3,7 +3,11 @@ import { Alert, Modal, ModalProps, Text, TouchableOpacity, View } from "react-na
 import { BoxCountry } from "../BoxCountry";
 
 
-export function ListCountry(Props: ModalProps) {
+type Props = {
+  visible: boolean;
+}
+
+export function ListCountry(Props: Props) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -17,7 +21,7 @@ export function ListCountry(Props: ModalProps) {
           !Props.visible;
         }}
       >
-        <BoxCountry />
+        <Text>Teste de lista</Text>
       </Modal>
     </View>
   );
